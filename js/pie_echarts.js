@@ -37,19 +37,23 @@ var myChart2 = echarts.init(document.getElementById('pie'));
         })
 
         .done(function(resp){        //请求成功以后的操作（resp是后端返回的json数据
-            console.log(resp);   
-            myChart2.setOption({
-            series: [{
-                // 根据名字对应到相应的系列
-                data: [
-                    {value: resp.data.series[0] , name: resp.data.xAxis[0] },  
-                    {value: resp.data.series[1] , name: resp.data.xAxis[1] },       
-                    {value: resp.data.series[2] , name: resp.data.xAxis[2] },       
-                    {value: resp.data.series[3] , name: resp.data.xAxis[3] },       
-                    {value: resp.data.series[4] , name: resp.data.xAxis[4] },       
-                    {value: resp.data.series[5] , name: resp.data.xAxis[5] },       
-                    {value: resp.data.series[6] , name: resp.data.xAxis[6] },       
-                ],
-            }]
-    });             
+            var vllist = resp.data.series;
+            var nelist = resp.data.xAxis;
+            var str = new Array();
+            for(i=0; i<nelist.length;i++){
+                var str3 = new Object();
+                str3.value = vllist[i];
+                str3.name = nelist[i];   
+                str.push(str3);
+                console.log(str) 
+            }
+            
+            var servicedata = str;
+            myChart2.setOption({ 
+                series:[{
+                    data:servicedata,
+                }]
+
+            });
+         
 })

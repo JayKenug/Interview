@@ -31,7 +31,7 @@ var myChart3 = echarts.init(document.getElementById('bar'));
         dataType: 'json',
     })
 
-    .done(function(resb){        //请求成功以后的操作（resp是后端返回的json数据
+    .done(function(resb){        //请求成功以后的操作（resb是后端返回的json数据
         console.log(resb);   
         myChart3.setOption({
         xAxis: {
