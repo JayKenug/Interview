@@ -26,7 +26,7 @@ var myChart3 = echarts.init(document.getElementById('bar'));
 
     // 异步加载数据
     $.ajax({
-        url: 'https://edu.telking.com/api/?type=week',    //后端程序的url地址
+        url: 'https://edu.telking.com/api/?type=week',    //后端程序url地址
         type: 'get',
         dataType: 'json',
     })
@@ -42,4 +42,4 @@ var myChart3 = echarts.init(document.getElementById('bar'));
             data: resb.data.series 
         }]
     });             
-    })
+    }) 
